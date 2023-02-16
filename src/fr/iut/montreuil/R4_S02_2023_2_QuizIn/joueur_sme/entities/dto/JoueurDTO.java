@@ -4,14 +4,18 @@ public class JoueurDTO {
 
     private int idJoueur;
     private String nomJoueur;
+    private Integer annéeNaissance;
     private String pseudo;
-    private int score;
+    private String langueFav;
+    private String hobbies;
 
-    public JoueurDTO (int idJoueur, String nomJoueur, String pseudo, int score) {
+    public JoueurDTO (int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) {
         this.idJoueur = idJoueur;
         this.nomJoueur = nomJoueur;
+        this.annéeNaissance = annéeNaissance;
         this.pseudo = pseudo;
-        this.score = score;
+        this.langueFav = langueFav;
+        this.hobbies = hobbies;
     }
 
     public int getIdJoueur () {
@@ -30,6 +34,14 @@ public class JoueurDTO {
         this.nomJoueur = nomJoueur;
     }
 
+    public Integer getAnnéeNaissance () {
+        return annéeNaissance;
+    }
+
+    public void setAnnéeNaissance (Integer annéeNaissance) {
+        this.annéeNaissance = annéeNaissance;
+    }
+
     public String getPseudo () {
         return pseudo;
     }
@@ -38,11 +50,20 @@ public class JoueurDTO {
         this.pseudo = pseudo;
     }
 
-    public int getScore () {
-        return score;
+    public String getLangueFav () {
+        return langueFav;
     }
 
-    public void setScore (int score) {
-        this.score = score;
+    public void setLangueFav (String langueFav) {
+        this.langueFav = langueFav;
     }
+
+    public String getHobbies () {
+        return hobbies;
+    }
+
+    public void setHobbies (String hobbies) {
+        this.hobbies = hobbies;
+    }
+
 }

@@ -34,11 +34,25 @@ public class ServiceJoueurImpl implements IServiceJoueur {
 
     @Override
     public JoueurDTO supprimerJoueur(String pseudo) {
-        return null;
+        Iterator <JoueurDTO> itDeleteJoueur = listJoueurs.iterator();
+        JoueurDTO joueurToVerif = null;
+
+        while (itDeleteJoueur.hasNext()){
+            joueurToVerif = itDeleteJoueur.next();
+            if (joueurToVerif.getPseudo().equals(pseudo)){
+                itDeleteJoueur.remove();
+            }
+        }
+        return joueurToVerif;
+    }
+
+    public Collection<JoueurDTO> getListJoueurs() {
+        return listJoueurs;
     }
 
     @Override
-    public TreeSet <JoueurDTO> listerJoueurs() {
-        return null;
+    public Collection <JoueurDTO> listerJoueurs() {
+        return getListJoueurs();
     }
+
 }

@@ -3,6 +3,7 @@ package fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.modeles;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public interface IServiceJoueur {
 
@@ -10,6 +11,6 @@ public interface IServiceJoueur {
 
     public JoueurDTO supprimerJoueur(String pseudo);
 
-    public ArrayList<JoueurDTO> listerJoueur();
+    public Collection<JoueurDTO> listerJoueurs();
 
 }

@@ -28,7 +28,7 @@ public class ServiceJoueurImpl implements IServiceJoueur {
         }
         JoueurDTO joueurToAdd = new JoueurDTO(idJoueur, nomJoueur, annéeNaissance, pseudo, langueFav, hobbies);
         listJoueurs.add(joueurToAdd);
-        
+
         return joueurToAdd;
     }
 
@@ -38,7 +38,7 @@ public class ServiceJoueurImpl implements IServiceJoueur {
     }
 
     @Override
-    public ArrayList<JoueurDTO> listerJoueur() {
+    public TreeSet <JoueurDTO> listerJoueurs() {
         return null;
     }
 }

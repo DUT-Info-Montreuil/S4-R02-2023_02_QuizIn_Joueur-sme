@@ -66,4 +66,15 @@ public class JoueurDTO {
         this.hobbies = hobbies;
     }
 
+    @Override
+    public String toString() {
+        return "JoueurDTO{" +
+                "idJoueur=" + idJoueur +
+                ", nomJoueur='" + nomJoueur + '\'' +
+                ", annéeNaissance=" + annéeNaissance +
+                ", pseudo='" + pseudo + '\'' +
+                ", langueFav='" + langueFav + '\'' +
+                ", hobbies='" + hobbies + '\'' +
+                '}';
+    }
 }

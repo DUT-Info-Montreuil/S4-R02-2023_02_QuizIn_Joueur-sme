@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface IServiceJoueur {
 
-    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies);
+    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) throws Exception;
 
     public JoueurDTO supprimerJoueur(String pseudo);
 

@@ -1,5 +1,7 @@
 package fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto;
 
+import java.util.Objects;
+
 public class JoueurDTO {
 
     private int idJoueur;
@@ -64,6 +66,19 @@ public class JoueurDTO {
 
     public void setHobbies (String hobbies) {
         this.hobbies = hobbies;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JoueurDTO joueurDTO = (JoueurDTO) o;
+        return Objects.equals(pseudo, joueurDTO.pseudo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pseudo);
     }
 
     @Override

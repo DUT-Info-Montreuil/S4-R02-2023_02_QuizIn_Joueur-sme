@@ -7,10 +7,10 @@ import java.util.Collection;
 
 public interface IServiceJoueur {
 
-    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) throws Exception;
+    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies);
 
     public JoueurDTO supprimerJoueur(String pseudo);
 
-    public Collection<JoueurDTO> listerJoueurs();
+    public ArrayList<JoueurDTO> listerJoueurs();
 
 }

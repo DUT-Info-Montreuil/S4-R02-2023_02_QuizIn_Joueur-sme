@@ -10,23 +10,24 @@ import java.util.TreeSet;
 
 public class ServiceJoueurImpl implements IServiceJoueur {
 
-    private Collection <JoueurDTO> listJoueurs;
+    private ArrayList <JoueurDTO> listJoueurs;
 
     public ServiceJoueurImpl() {
-        this.listJoueurs = new TreeSet <JoueurDTO>() ;
+        this.listJoueurs = new ArrayList<JoueurDTO>();
     }
 
     @Override
-    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) throws Exception{
+    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies){
         Iterator <JoueurDTO> itAddJoueur = listJoueurs.iterator();
 
-        while (itAddJoueur.hasNext()) {
-            JoueurDTO joueurToVerif = itAddJoueur.next();
-            if (joueurToVerif.getPseudo().equals(pseudo)) {
-                throw (new Exception("Le pseudo est déjà utilisé par un joueur !" + "\n\n"));
+        JoueurDTO joueurToAdd = new JoueurDTO(idJoueur, nomJoueur, annéeNaissance, pseudo, langueFav, hobbies);
+
+        for (JoueurDTO joueurListe : this.listJoueurs) {
+            if (joueurListe.equals(joueurToAdd)) {
+                return null;
             }
         }
-        JoueurDTO joueurToAdd = new JoueurDTO(idJoueur, nomJoueur, annéeNaissance, pseudo, langueFav, hobbies);
+
         listJoueurs.add(joueurToAdd);
 
         return joueurToAdd;
@@ -46,12 +47,12 @@ public class ServiceJoueurImpl implements IServiceJoueur {
         return joueurToVerif;
     }
 
-    public Collection<JoueurDTO> getListJoueurs() {
+    public ArrayList<JoueurDTO> getListJoueurs() {
         return listJoueurs;
     }
 
     @Override
-    public Collection <JoueurDTO> listerJoueurs() {
+    public ArrayList<JoueurDTO> listerJoueurs() {
         return getListJoueurs();
     }
 

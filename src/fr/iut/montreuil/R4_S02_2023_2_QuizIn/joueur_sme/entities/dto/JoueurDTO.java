@@ -6,15 +6,15 @@ public class JoueurDTO {
 
     private int idJoueur;
     private String nomJoueur;
-    private Integer annéeNaissance;
+    private Integer anneeNaissance;
     private String pseudo;
     private String langueFav;
     private String hobbies;
 
-    public JoueurDTO (int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) {
+    public JoueurDTO (int idJoueur, String nomJoueur, Integer anneeNaissance, String pseudo, String langueFav, String hobbies) {
         this.idJoueur = idJoueur;
         this.nomJoueur = nomJoueur;
-        this.annéeNaissance = annéeNaissance;
+        this.anneeNaissance = anneeNaissance;
         this.pseudo = pseudo;
         this.langueFav = langueFav;
         this.hobbies = hobbies;
@@ -36,12 +36,12 @@ public class JoueurDTO {
         this.nomJoueur = nomJoueur;
     }
 
-    public Integer getAnnéeNaissance () {
-        return annéeNaissance;
+    public Integer getAnneeNaissance () {
+        return anneeNaissance;
     }
 
-    public void setAnnéeNaissance (Integer annéeNaissance) {
-        this.annéeNaissance = annéeNaissance;
+    public void setAnnéeNaissance (Integer anneeNaissance) {
+        this.anneeNaissance = anneeNaissance;
     }
 
     public String getPseudo () {
@@ -86,7 +86,7 @@ public class JoueurDTO {
         return "JoueurDTO{" +
                 "idJoueur=" + idJoueur +
                 ", nomJoueur='" + nomJoueur + '\'' +
-                ", annéeNaissance=" + annéeNaissance +
+                ", anneeNaissance=" + anneeNaissance +
                 ", pseudo='" + pseudo + '\'' +
                 ", langueFav='" + langueFav + '\'' +
                 ", hobbies='" + hobbies + '\'' +

@@ -1,6 +1,8 @@
 package test.fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl.Mock;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.PseudoJoueurDejaExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.modeles.IServiceJoueur;
 
 import java.util.ArrayList;
@@ -8,11 +10,8 @@ import java.util.Collection;
 
 public class ServiceJoueurMockKo implements IServiceJoueur {
 
-
-
-
     @Override
-    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) {
+    public JoueurDTO ajouterJoueur(String nomJoueur, Integer annéeNaissance, String pseudo, Langues langueFav, String hobbies) throws PseudoJoueurDejaExistant {
         return null;
     }
 

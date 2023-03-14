@@ -1,23 +1,27 @@
 package fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto;
 
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
+
 import java.util.Objects;
 
 public class JoueurDTO {
 
+    private static int compteurJoueur = 0;
     private int idJoueur;
     private String nomJoueur;
     private Integer anneeNaissance;
     private String pseudo;
-    private String langueFav;
+    private Langues langueFav;
     private String hobbies;
 
-    public JoueurDTO (int idJoueur, String nomJoueur, Integer anneeNaissance, String pseudo, String langueFav, String hobbies) {
-        this.idJoueur = idJoueur;
+    public JoueurDTO (String nomJoueur, Integer anneeNaissance, String pseudo, Langues langueFav, String hobbies) {
+        this.idJoueur = this.compteurJoueur;
         this.nomJoueur = nomJoueur;
         this.anneeNaissance = anneeNaissance;
         this.pseudo = pseudo;
         this.langueFav = langueFav;
         this.hobbies = hobbies;
+        compteurJoueur++;
     }
 
     public int getIdJoueur () {
@@ -52,11 +56,11 @@ public class JoueurDTO {
         this.pseudo = pseudo;
     }
 
-    public String getLangueFav () {
+    public Langues getLangueFav () {
         return langueFav;
     }
 
-    public void setLangueFav (String langueFav) {
+    public void setLangueFav (Langues langueFav) {
         this.langueFav = langueFav;
     }
 

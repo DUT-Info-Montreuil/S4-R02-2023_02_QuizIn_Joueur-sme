@@ -1,6 +1,7 @@
 package fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.PseudoJoueurDejaExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.modeles.IServiceJoueur;
 
 import java.util.ArrayList;
@@ -17,19 +18,15 @@ public class ServiceJoueurImpl implements IServiceJoueur {
     }
 
     @Override
-    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies){
-        Iterator <JoueurDTO> itAddJoueur = listJoueurs.iterator();
-
+    public JoueurDTO ajouterJoueur(int idJoueur, String nomJoueur, Integer annéeNaissance, String pseudo, String langueFav, String hobbies) throws PseudoJoueurDejaExistant {
         JoueurDTO joueurToAdd = new JoueurDTO(idJoueur, nomJoueur, annéeNaissance, pseudo, langueFav, hobbies);
 
         for (JoueurDTO joueurListe : this.listJoueurs) {
             if (joueurListe.equals(joueurToAdd)) {
-                return null;
+                throw new PseudoJoueurDejaExistant();
             }
         }
-
         listJoueurs.add(joueurToAdd);
-
         return joueurToAdd;
     }
 

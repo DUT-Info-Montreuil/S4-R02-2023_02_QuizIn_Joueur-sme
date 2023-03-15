@@ -39,9 +39,10 @@ public class ServiceJoueurImpl implements IServiceJoueur {
             joueurToVerif = itDeleteJoueur.next();
             if (joueurToVerif.getPseudo().equals(pseudo)){
                 itDeleteJoueur.remove();
+                return joueurToVerif;
             }
         }
-        return joueurToVerif;
+        return null;
     }
 
     public ArrayList<JoueurDTO> getListJoueurs() {

@@ -36,7 +36,7 @@ public class ServiceJoueurImplTest {
     }
 
     @org.junit.jupiter.api.Test
-    void ajouterJoueur() throws PseudoJoueurDejaExistant {
+    void ajouterJoueurMock() throws PseudoJoueurDejaExistant {
 
         try {
 
@@ -72,9 +72,11 @@ public class ServiceJoueurImplTest {
     }
 
     @org.junit.jupiter.api.Test
-    void supprimerJoueur() {
+    void supprimerJoueurMock() throws PseudoJoueurDejaExistant {
 
-        //assertEquals(this.j1,this.serviceJoueurMockOk.supprimerJoueur(j1.getPseudo()), "cas joueur supprimé");
+        this.serviceJoueurMockOk.ajouterJoueur("Dio", 1866, "DIO", Langues.Francais, "rugby");
+
+        assertEquals(this.j1,this.serviceJoueurMockOk.supprimerJoueur(j1.getPseudo()), "cas joueur supprimé");
 
         assertEquals(null,this.serviceJoueurMockOk.supprimerJoueur("Naoufel"), "cas joueur inexistant");
 
@@ -89,9 +91,9 @@ public class ServiceJoueurImplTest {
 
         assertEquals(this.j1,this.sji.supprimerJoueur(this.j1.getPseudo()), "cas joueur supprimé");
 
-        //assertEquals(null,this.sji.supprimerJoueur("Richard"), "cas pseudo  inexistant");
+        assertEquals(null,this.sji.supprimerJoueur("Richard"), "cas pseudo  inexistant");
 
-        //assertEquals(null,this.sji.supprimerJoueur("Dio"), "cas pseudo mal ecrit");
+        assertEquals(null,this.sji.supprimerJoueur("Dio"), "cas pseudo mal ecrit");
 
     }
 

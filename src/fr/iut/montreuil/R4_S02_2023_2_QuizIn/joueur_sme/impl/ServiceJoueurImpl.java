@@ -10,10 +10,15 @@ import java.util.Iterator;
 
 public class ServiceJoueurImpl implements IServiceJoueur {
 
+    private static ServiceJoueurImpl uniqueInstance = new ServiceJoueurImpl();
     private ArrayList <JoueurDTO> listJoueurs;
 
     public ServiceJoueurImpl() {
         this.listJoueurs = new ArrayList<JoueurDTO>();
+    }
+
+    public static ServiceJoueurImpl getInstance(){
+        return uniqueInstance;
     }
 
     @Override

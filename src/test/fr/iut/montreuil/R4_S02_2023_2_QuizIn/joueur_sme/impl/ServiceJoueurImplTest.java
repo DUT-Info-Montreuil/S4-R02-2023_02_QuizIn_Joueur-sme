@@ -2,6 +2,7 @@ package test.fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.JoueurNonExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.PseudoJoueurDejaExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl.ServiceJoueurImpl;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.modeles.IServiceJoueur;
@@ -85,7 +86,7 @@ public class ServiceJoueurImplTest {
     }
 
     @org.junit.jupiter.api.Test
-    void supprimerJoueurMethode() throws PseudoJoueurDejaExistant {
+    void supprimerJoueurMethode() throws PseudoJoueurDejaExistant, JoueurNonExistant {
 
         this.sji.ajouterJoueur(j1.getNomJoueur(), j1.getAnneeNaissance(), j1.getPseudo(), j1.getLangueFav(), j1.getHobbies());
 

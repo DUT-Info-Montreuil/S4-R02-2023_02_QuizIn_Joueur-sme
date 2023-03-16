@@ -2,6 +2,7 @@ package fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.JoueurNonExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.PseudoJoueurDejaExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.modeles.IServiceJoueur;
 
@@ -34,7 +35,7 @@ public class ServiceJoueurImpl implements IServiceJoueur {
         return joueurToAdd;    }
 
     @Override
-    public JoueurDTO supprimerJoueur(String pseudo) {
+    public JoueurDTO supprimerJoueur(String pseudo) throws JoueurNonExistant {
         Iterator <JoueurDTO> itDeleteJoueur = listJoueurs.iterator();
         JoueurDTO joueurToVerif = null;
 

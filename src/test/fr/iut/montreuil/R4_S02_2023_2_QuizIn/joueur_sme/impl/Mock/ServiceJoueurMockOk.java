@@ -1,6 +1,7 @@
 package test.fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl.Mock;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.ScoreDTO;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.PseudoJoueurDejaExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.modeles.IServiceJoueur;
@@ -40,5 +41,25 @@ public class ServiceJoueurMockOk implements IServiceJoueur {
     @Override
     public ArrayList<JoueurDTO> listerJoueurs() {
         return listJoueurs;
+    }
+
+    @Override
+    public ScoreDTO gestionScoreJoueur(int points, long temps) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<ScoreDTO> fournirStatsJoueur() {
+        return null;
+    }
+
+    @Override
+    public void fournirClassement() {
+
+    }
+
+    @Override
+    public String transmettreInfoJoueur() {
+        return null;
     }
 }

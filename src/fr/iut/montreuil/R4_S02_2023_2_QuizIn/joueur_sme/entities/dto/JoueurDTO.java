@@ -2,6 +2,8 @@ package fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.Objects;
 
 public class JoueurDTO {
@@ -13,6 +15,7 @@ public class JoueurDTO {
     private String pseudo;
     private Langues langueFav;
     private String hobbies;
+    private ArrayList<ScoreDTO> listeScores;
 
     public JoueurDTO (String nomJoueur, Integer anneeNaissance, String pseudo, Langues langueFav, String hobbies) {
         this.idJoueur = this.compteurJoueur;
@@ -21,6 +24,7 @@ public class JoueurDTO {
         this.pseudo = pseudo;
         this.langueFav = langueFav;
         this.hobbies = hobbies;
+        this.listeScores = new ArrayList<ScoreDTO>();
         compteurJoueur++;
     }
 
@@ -70,6 +74,10 @@ public class JoueurDTO {
 
     public void setHobbies (String hobbies) {
         this.hobbies = hobbies;
+    }
+
+    public ArrayList<ScoreDTO> getListeScores() {
+        return listeScores;
     }
 
     @Override

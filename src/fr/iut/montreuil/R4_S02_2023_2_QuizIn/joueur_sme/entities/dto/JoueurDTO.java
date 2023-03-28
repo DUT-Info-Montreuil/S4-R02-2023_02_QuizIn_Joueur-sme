@@ -145,8 +145,13 @@ public class JoueurDTO {
                 ", nomJoueur='" + nomJoueur + '\'' +
                 ", anneeNaissance=" + anneeNaissance +
                 ", pseudo='" + pseudo + '\'' +
-                ", langueFav='" + langueFav + '\'' +
+                ", langueFav=" + langueFav +
                 ", hobbies='" + hobbies + '\'' +
+                ", listeScores=" + listeScores +
+                ", moyennePoints=" + moyennePoints +
+                ", moyenneTemps=" + moyenneTemps +
+                ", totalPoints=" + totalPoints +
+                ", totalPartiesJouees=" + totalPartiesJouees +
                 '}';
     }
 }

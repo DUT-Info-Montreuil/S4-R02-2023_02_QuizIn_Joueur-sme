@@ -16,12 +16,12 @@ public interface IServiceJoueur {
 
     public ArrayList<JoueurDTO> listerJoueurs();
 
-    public ScoreDTO gestionScoreJoueur(int points, long temps);
+    public ScoreDTO gestionScoreJoueur(int points, long temps, JoueurDTO joueur);
 
-    public ArrayList<ScoreDTO> fournirStatsJoueur();
+    public ArrayList<ScoreDTO> fournirStatsJoueur(JoueurDTO joueur);
 
     public void fournirClassement();
 
-    public String transmettreInfoJoueur();
+    public String transmettreInfoJoueur(JoueurDTO joueur);
 
 }

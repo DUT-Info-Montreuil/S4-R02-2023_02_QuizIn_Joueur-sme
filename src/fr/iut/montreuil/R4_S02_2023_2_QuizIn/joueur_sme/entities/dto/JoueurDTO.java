@@ -16,6 +16,11 @@ public class JoueurDTO {
     private Langues langueFav;
     private String hobbies;
     private ArrayList<ScoreDTO> listeScores;
+    private double moyennePoints;
+    private long moyenneTemps;
+    private int totalPoints;
+    private int totalPartiesJouees;
+
 
     public JoueurDTO (String nomJoueur, Integer anneeNaissance, String pseudo, Langues langueFav, String hobbies) {
         this.idJoueur = this.compteurJoueur;
@@ -25,6 +30,10 @@ public class JoueurDTO {
         this.langueFav = langueFav;
         this.hobbies = hobbies;
         this.listeScores = new ArrayList<ScoreDTO>();
+        this.moyennePoints = 0;
+        this.moyenneTemps = 0;
+        this.totalPoints = 0;
+        this.totalPartiesJouees = 0;
         compteurJoueur++;
     }
 
@@ -78,6 +87,42 @@ public class JoueurDTO {
 
     public ArrayList<ScoreDTO> getListeScores() {
         return listeScores;
+    }
+
+    public void setListeScores(ArrayList<ScoreDTO> listeScores) {
+        this.listeScores = listeScores;
+    }
+
+    public double getMoyennePoints() {
+        return moyennePoints;
+    }
+
+    public void setMoyennePoints(double moyennePoints) {
+        this.moyennePoints = moyennePoints;
+    }
+
+    public long getMoyenneTemps() {
+        return moyenneTemps;
+    }
+
+    public void setMoyenneTemps(long moyenneTemps) {
+        this.moyenneTemps = moyenneTemps;
+    }
+
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints = totalPoints;
+    }
+
+    public int getTotalPartiesJouees() {
+        return totalPartiesJouees;
+    }
+
+    public void setTotalPartiesJouees(int totalPartiesJouees) {
+        this.totalPartiesJouees = totalPartiesJouees;
     }
 
     @Override

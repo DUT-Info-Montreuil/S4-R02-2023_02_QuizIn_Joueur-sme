@@ -60,13 +60,35 @@ public class ServiceJoueurImpl implements IServiceJoueur {
     }
 
     @Override
-    public ScoreDTO gestionScoreJoueur(int points, long temps) {
+    public ScoreDTO gestionScoreJoueur(int points, long temps, JoueurDTO joueur) {
+        for(JoueurDTO j : this.listJoueurs){
+            if(j.equals(joueur)) {
+                j.getListeScores().add(new ScoreDTO(points,temps));
+
+                j.setTotalPartiesJouees(j.getTotalPartiesJouees()+1);
+                j.setTotalPoints(j.getTotalPoints()+points);
+
+                double moyenneP = 0;
+                long moyenneT = 0;
+                for(int i = 0 ; i < j.getListeScores().size() ; i++) {
+                    moyenneP += j.getListeScores().get(i).getPoints();
+                    moyenneT += j.getListeScores().get(i).getTemps();
+                }
+                moyenneP = moyenneP / j.getListeScores().size();
+                moyenneT = moyenneT / j.getListeScores().size();
+
+                j.setMoyennePoints(moyenneP);
+                j.setMoyennePoints(moyenneT);
+
+                return j.getListeScores().get(j.getListeScores().size());
+            }
+        }
         return null;
     }
 
     @Override
-    public ArrayList<ScoreDTO> fournirStatsJoueur() {
-        return null;
+    public ArrayList<ScoreDTO> fournirStatsJoueur(JoueurDTO joueur) {
+        return joueur.getListeScores();
     }
 
     @Override
@@ -75,8 +97,8 @@ public class ServiceJoueurImpl implements IServiceJoueur {
     }
 
     @Override
-    public String transmettreInfoJoueur() {
-        return null;
+    public String transmettreInfoJoueur(JoueurDTO joueur) {
+        return joueur.toString();
     }
 
 }

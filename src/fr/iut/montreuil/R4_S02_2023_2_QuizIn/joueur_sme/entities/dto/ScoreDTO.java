@@ -35,7 +35,4 @@ public class ScoreDTO {
     public void setTemps(long temps) {
         this.temps = temps;
     }
-
-
-
 }

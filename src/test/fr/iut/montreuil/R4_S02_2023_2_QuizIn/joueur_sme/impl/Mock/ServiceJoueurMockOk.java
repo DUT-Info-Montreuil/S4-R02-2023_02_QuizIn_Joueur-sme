@@ -45,12 +45,12 @@ public class ServiceJoueurMockOk implements IServiceJoueur {
 
     @Override
     public ScoreDTO gestionScoreJoueur(int points, long temps, JoueurDTO joueur) {
-        return null;
+        return joueur.getListeScores().get(joueur.getListeScores().size());
     }
 
     @Override
     public ArrayList<ScoreDTO> fournirStatsJoueur(JoueurDTO joueur) {
-        return null;
+        return joueur.getListeScores();
     }
 
     @Override
@@ -60,6 +60,6 @@ public class ServiceJoueurMockOk implements IServiceJoueur {
 
     @Override
     public String transmettreInfoJoueur(JoueurDTO joueur) {
-        return null;
+        return joueur.toString();
     }
 }

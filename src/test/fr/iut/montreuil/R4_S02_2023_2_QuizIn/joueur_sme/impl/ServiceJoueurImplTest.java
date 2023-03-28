@@ -1,6 +1,7 @@
 package test.fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.impl;
 
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.entities.dto.ScoreDTO;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.enums.Langues;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.JoueurNonExistant;
 import fr.iut.montreuil.R4_S02_2023_2_QuizIn.joueur_sme.exceptions.PseudoJoueurDejaExistant;
@@ -21,13 +22,18 @@ public class ServiceJoueurImplTest {
     ServiceJoueurMockOk serviceJoueurMockOk;
     ServiceJoueurMockKo serviceJoueurMockKo;
     private JoueurDTO j1 = new JoueurDTO("Dio", 1866, "DIO", Langues.Francais, "rugby");
+    private JoueurDTO j2 = new JoueurDTO("Rachid", 2003, "RSK", Langues.Francais, "Football");
+
+    private ScoreDTO s1 = new ScoreDTO(100, 60);
+
+    private ScoreDTO s2 = new ScoreDTO(200, 120);
+
     private IServiceJoueur sji;
 
     @BeforeEach
     void setUp(TestInfo testInfo) throws PseudoJoueurDejaExistant {
         this.serviceJoueurMockOk = new ServiceJoueurMockOk();
         this.serviceJoueurMockKo = new ServiceJoueurMockKo();
-
         this.serviceJoueurMockOk.ajouterJoueur("Dio", 1866, "DIO", Langues.Francais, "rugby");
 
         this.sji = new ServiceJoueurImpl();
@@ -96,6 +102,25 @@ public class ServiceJoueurImplTest {
 
         assertEquals(null,this.sji.supprimerJoueur("Dio"), "cas pseudo mal ecrit");
 
+    }
+
+    @org.junit.jupiter.api.Test
+    void gestionScoreJoueurMock () {
+        assertEquals(null, this.serviceJoueurMockKo.gestionScoreJoueur(5, 120, this.j1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void gestionScoreJoeurMethode () {
+        this.sji.gestionScoreJoueur(s1.getPoints(), s1.getTemps(), this.j1);
+        this.sji.gestionScoreJoueur(s2.getPoints(), s2.getTemps(), this.j1);
+
+        assertEquals(null, this.sji.gestionScoreJoueur(10, 100, this.j2), "Cas joueur non dans la liste");
+
+        //assertEquals(1, this.j1.getListeScores().size(), "Cas score bien ajouté");
+
+        //assertEquals(150, j1.getMoyennePoints(), "Cas pour calculer la moyenne des points du joueur");
+
+        //assertEquals(90, j1.getMoyenneTemps(), "Cas pour calculer la moyenne des temps du joueur");
     }
 
 }

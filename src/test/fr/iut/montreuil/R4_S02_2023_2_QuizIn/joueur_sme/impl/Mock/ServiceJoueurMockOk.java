@@ -45,7 +45,7 @@ public class ServiceJoueurMockOk implements IServiceJoueur {
 
     @Override
     public ScoreDTO gestionScoreJoueur(int points, long temps, JoueurDTO joueur) {
-        return joueur.getListeScores().get(joueur.getListeScores().size());
+        return new ScoreDTO(points, temps);
     }
 
     @Override

@@ -74,13 +74,13 @@ public class ServiceJoueurImpl implements IServiceJoueur {
                     moyenneP += j.getListeScores().get(i).getPoints();
                     moyenneT += j.getListeScores().get(i).getTemps();
                 }
-                moyenneP = moyenneP / j.getListeScores().size();
-                moyenneT = moyenneT / j.getListeScores().size();
+                moyenneP = moyenneP / j.getListeScores().size()-1;
+                moyenneT = moyenneT / j.getListeScores().size()-1;
 
                 j.setMoyennePoints(moyenneP);
                 j.setMoyennePoints(moyenneT);
 
-                return j.getListeScores().get(j.getListeScores().size());
+                return j.getListeScores().get(j.getListeScores().size()-1);
             }
         }
         return null;
@@ -88,7 +88,12 @@ public class ServiceJoueurImpl implements IServiceJoueur {
 
     @Override
     public ArrayList<ScoreDTO> fournirStatsJoueur(JoueurDTO joueur) {
-        return joueur.getListeScores();
+        if(!joueur.getListeScores().isEmpty()) {
+            return joueur.getListeScores();
+        }
+        else {
+            return null;
+        }
     }
 
     @Override

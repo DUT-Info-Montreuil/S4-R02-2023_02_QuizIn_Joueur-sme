@@ -76,7 +76,7 @@ public class ServiceJoueurImpl implements IServiceJoueur {
         moyenneT = moyenneT / j.getListeScores().size();
 
         j.setMoyennePoints(moyenneP);
-        j.setMoyennePoints(moyenneT);
+        j.setMoyenneTemps(moyenneT);
 
         return j.getListeScores().get(j.getListeScores().size()-1);
     }

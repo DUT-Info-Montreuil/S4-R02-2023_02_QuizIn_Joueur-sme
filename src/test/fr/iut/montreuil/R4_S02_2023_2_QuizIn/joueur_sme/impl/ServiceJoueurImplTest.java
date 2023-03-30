@@ -25,9 +25,9 @@ public class ServiceJoueurImplTest {
     private JoueurDTO j2 = new JoueurDTO("Rachid", 2003, "RSK", Langues.Francais, "Football");
     private JoueurDTO j3 = new JoueurDTO("Yanis", 2003, "ttc", Langues.Francais, "basket");
 
-    private ScoreDTO s1 = new ScoreDTO(100, 60);
+    private ScoreDTO s1 = new ScoreDTO(10, 100);
 
-    private ScoreDTO s2 = new ScoreDTO(200, 120);
+    private ScoreDTO s2 = new ScoreDTO(10, 100);
 
     private IServiceJoueur sji;
 
@@ -40,6 +40,8 @@ public class ServiceJoueurImplTest {
         this.sji = new ServiceJoueurImpl();
         this.sji.ajouterJoueur("Jonathan", 1866, "JoJo", Langues.Francais, "rugby");
         this.sji.ajouterJoueur("Dio", 1866, "DIO", Langues.Francais, "rugby");
+        this.sji.ajouterJoueur("Rachid", 2003, "RSK", Langues.Francais, "Football");
+
 
         System.out.println("test " + testInfo.getDisplayName());
     }
@@ -119,23 +121,25 @@ public class ServiceJoueurImplTest {
 
     @org.junit.jupiter.api.Test
     void gestionScoreJoeurMethode () {
-        ScoreDTO res1 = this.sji.gestionScoreJoueur(s1.getPoints(), s1.getTemps(), this.j1);
-        ScoreDTO res2 = this.sji.gestionScoreJoueur(s2.getPoints(), s2.getTemps(), this.j1);
+        this.sji.gestionScoreJoueur(this.s1.getPoints(), this.s1.getTemps(), this.j1);
+        this.sji.gestionScoreJoueur(this.s2.getPoints(), this.s2.getTemps(), this.j1);
 
         ScoreDTO score = new ScoreDTO(50, 120);
-        ScoreDTO resultat = this.sji.gestionScoreJoueur(score.getPoints(), score.getTemps(), this.j1);
+        ScoreDTO resultat = this.sji.gestionScoreJoueur(score.getPoints(), score.getTemps(), this.j2);
 
-        assertEquals(null, this.sji.gestionScoreJoueur(10, 100, this.j2), "Cas joueur non dans la liste");
+        assertEquals(1, this.j2.getListeScores().size(), "Cas score bien ajouté dans la liste de score du joueur");
 
-        //assertEquals(1, this.j1.getListeScores().size(), "Cas score bien ajouté");
+        assertEquals(10, this.j1.getMoyennePoints(), "Cas pour voir si la moyenne des points du joueur est bien calculé");
 
-        //assertEquals(50, resultat.getPoints(), "Cas point bien ajouté");
+        assertEquals(100, this.j1.getMoyenneTemps(), "Cas pour voir si la moyenne des temps du joueur est bien calculée");
 
-        //assertEquals(120, resultat.getTemps(), "temps bien ajouté");
+        assertEquals(50, resultat.getPoints(), "Cas point bien ajouté dans le score ");
 
-        //assertEquals(150, j1.getMoyennePoints(), "Cas pour voir si la moyenne des points du joueur est bien calculé");
+        assertEquals(120, resultat.getTemps(), "Cas temps bien ajouté dans le score");
 
-        //assertEquals(90, j1.getMoyenneTemps(), "Cas pour voir si la moyenne des temps du joueur est bien calculée");
+        assertEquals(20, this.j1.getTotalPoints(), "Cas total point joueur bien calculé");
+
+        assertEquals(2, this.j1.getTotalPartiesJouees(), "Cas total partie jouée bien pris en compte");
     }
 
 

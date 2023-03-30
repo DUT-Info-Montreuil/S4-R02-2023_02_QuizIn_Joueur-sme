@@ -35,4 +35,13 @@ public class ScoreDTO {
     public void setTemps(long temps) {
         this.temps = temps;
     }
+
+    @Override
+    public String toString() {
+        return "ScoreDTO{" +
+                "idScore=" + idScore +
+                ", points=" + points +
+                ", temps=" + temps +
+                '}';
+    }
 }

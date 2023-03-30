@@ -98,8 +98,6 @@ public class ServiceJoueurImplTest {
     @org.junit.jupiter.api.Test
     void supprimerJoueurMethode () throws PseudoJoueurDejaExistant, JoueurNonExistant {
 
-        this.sji.ajouterJoueur(j1.getNomJoueur(), j1.getAnneeNaissance(), j1.getPseudo(), j1.getLangueFav(), j1.getHobbies());
-
         assertEquals(this.j1, this.sji.supprimerJoueur(this.j1.getPseudo()), "cas joueur supprimé");
 
         assertEquals(null, this.sji.supprimerJoueur("Richard"), "cas pseudo  inexistant");
